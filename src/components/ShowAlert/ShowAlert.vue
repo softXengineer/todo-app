@@ -1,8 +1,8 @@
 <template>
   <div class="alert">
-    <img v-if="type === 'success'" src="../../assets/done.svg" alt="Success" />
-    <img v-else-if="type === 'info'" src="../../assets/info.svg" alt="info" />
-    <img v-else src="../../assets/warning.svg" alt="Error" />
+    <img v-if="type === 'success'" src="../../assets/images/done.svg" alt="Success" />
+    <img v-else-if="type === 'info'" src="../../assets/images/info.svg" alt="info" />
+    <img v-else src="../../assets/images/warning.svg" alt="Error" />
     {{ message }}
   </div>
 </template>
