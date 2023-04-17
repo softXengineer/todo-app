@@ -1,5 +1,5 @@
 <template>
-  <div :class="[open ? 'open' : 'close', 'sidebar']">
+  <div :class="[isMenuOpen ? 'open' : 'close', 'sidebar']">
     <div class="sidebar__inner">
       <SidebarList
         :categories="categories"
@@ -26,7 +26,7 @@ export default {
     SidebarForm,
   },
   props: {
-    open: Boolean,
+    isMenuOpen: Boolean,
     categories: Array,
     addCategory: Function,
     deleteCategory: Function,
