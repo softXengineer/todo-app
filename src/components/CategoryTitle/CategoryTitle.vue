@@ -3,15 +3,15 @@
     <SectionHeader :icon="icon" :title="title" />
     <div class="category__stats">
       <div class="category__stats-item">
-        <img src="../../assets/list.svg" alt="" width="20" height="20" />
+        <img src="../../assets/images/list.svg" alt="" width="20" height="20" />
         <span class="category__stats-number">{{ count }}</span>
       </div>
       <div class="category__stats-item">
-        <img src="../../assets/done.svg" alt="" width="20" height="20" />
+        <img src="../../assets/images/done.svg" alt="" width="20" height="20" />
         <span class="category__stats-number">{{ done }}</span>
       </div>
       <div class="category__stats-item">
-        <img src="../../assets/undone.svg" alt="" width="20" height="20" />
+        <img src="../../assets/images/undone.svg" alt="" width="20" height="20" />
         <span class="category__stats-number">{{ undone }}</span>
       </div>
     </div>
