@@ -121,12 +121,7 @@ export default {
         return this.showAlert("error", "Please select a category!");
 
       const tasks = [...this.selectedCategory.tasks, task];
-      const newSelected = {
-        ...this.selectedCategory,
-        tasks,
-        count: tasks.length,
-        undone: this.selectedCategory.undone + 1,
-      };
+      const newSelected = this.updateSelectedCategory(tasks);
 
       this.categories = this.categories.map((category) =>
         category.id === this.selectedCategory.id ? newSelected : category
@@ -138,16 +133,8 @@ export default {
       const tasks = this.selectedCategory.tasks.filter(
         (task) => task.id !== id
       );
-      const done = tasks.filter((t) => t.status).length;
-      const undone = tasks.filter((t) => !t.status).length;
 
-      const newSelected = {
-        ...this.selectedCategory,
-        tasks,
-        count: tasks.length,
-        done,
-        undone,
-      };
+      const newSelected = this.updateSelectedCategory(tasks);
 
       const newCategories = this.categories.map((category) =>
         category.id === this.selectedCategory.id ? newSelected : category
@@ -160,19 +147,24 @@ export default {
       const tasks = this.selectedCategory.tasks.map((t) =>
         t.id === task.id ? task : t
       );
-      const done = tasks.filter((t) => t.status).length;
-      const undone = tasks.filter((t) => !t.status).length;
-      const newSelected = {
-        ...this.selectedCategory,
-        tasks,
-        done,
-        undone,
-      };
+      const newSelected = this.updateSelectedCategory(tasks);
 
       this.categories = this.categories.map((category) =>
         category.id === this.selectedCategory.id ? newSelected : category
       );
       this.selectedCategory = newSelected;
+    },
+    updateSelectedCategory(tasks) {
+      const done = tasks.filter((t) => t.status).length;
+      const undone = tasks.filter((t) => !t.status).length;
+
+      return {
+        ...this.selectedCategory,
+        tasks,
+        count: tasks.length,
+        done,
+        undone,
+      };
     },
   },
 };
