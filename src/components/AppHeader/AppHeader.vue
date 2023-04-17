@@ -1,7 +1,7 @@
 <template>
   <header>
     <button
-      :class="[!open && 'close', 'close-btn']"
+      :class="[!isMenuOpen && 'close', 'close-btn']"
       @click="openSidebarHandler"
     >
       <span>&#10005;</span>
@@ -13,7 +13,7 @@
 export default {
   name: "AppHeader",
   props: {
-    open: Boolean,
+    isMenuOpen: Boolean,
     openSidebarHandler: Function,
   },
 };

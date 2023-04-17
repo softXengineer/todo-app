@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <ShowAlert v-show="alertOpen" :type="alertType" :message="message" />
-    <AppHeader :openSidebarHandler="openSidebarHandler" :open="open" />
+    <AppHeader :openSidebarHandler="openSidebarHandler" :isMenuOpen="isMenuOpen" />
     <main>
       <AppSidebar
         :categories="categories"
@@ -10,7 +10,7 @@
         :deleteCategory="deleteCategory"
         :selectedCategory="selectedCategory"
         :showAlert="showAlert"
-        :open="open"
+        :isMenuOpen="isMenuOpen"
       />
       <AppShowcase
         :selectedCategory="selectedCategory"
@@ -38,7 +38,7 @@ export default {
   },
   data() {
     return {
-      open: true,
+      isMenuOpen: true,
       alertOpen: false,
       alertType: "success",
       message: "",
@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     openSidebarHandler() {
-      this.open = !this.open;
+      this.isMenuOpen = !this.isMenuOpen;
     },
     showAlert(type, message) {
       this.alertOpen = true;
@@ -95,7 +95,7 @@ export default {
     },
     selectCategory(category) {
       if (window.screen.width < 768) {
-        this.open = !this.open;
+        this.isMenuOpen = !this.isMenuOpen;
       }
       this.selectedCategory = category;
     },
